@@ -1,8 +1,6 @@
-cat << 'EOF' > wrangler.toml
 name = "ydkball-landing"
 main = "./public/index.html"
 compatibility_date = "2024-02-18"
 
 [site]
 bucket = "./public"
-EOF
