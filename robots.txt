@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ydkball.com/sitemap.xml
