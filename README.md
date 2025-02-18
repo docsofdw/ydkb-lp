@@ -13,3 +13,11 @@ npm run watch
 
 # Make production build
 npm run build
+
+
+Tech Stack 🛠
+
+HTML5
+TailwindCSS
+AlpineJS
+Mailchimp API
