@@ -14,16 +14,14 @@
     <meta property="og:url" content="https://ydkball.com/">
     <meta property="og:title" content="You Don't Know Ball | The Ultimate Sports Knowledge Test">
     <meta property="og:description" content="Think you know where the legends played? Put up or shut up. Daily challenges to prove your NFL knowledge.">
-    <meta property="og:image" content="https://ydkball.com/ydkb-preview.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    <meta property="og:image" content="/ydkb-preview.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://ydkball.com/">
     <meta property="twitter:title" content="You Don't Know Ball | Put Your Sports Knowledge to the Test">
     <meta property="twitter:description" content="Everyone's a draft expert until they have to name the colleges. Time to prove it. 😤">
-    <meta property="twitter:image" content="https://ydkball.com/ydkb-preview.png">
+    <meta property="twitter:image" content="/ydkb-preview.png">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&display=swap">
@@ -36,32 +34,25 @@
     <div class="">
                 
       <section class="relative min-h-screen bg-gradient-to-b from-slate-900 via-slate-900 to-slate-800 overflow-hidden">  <!-- Gradient orbs -->  <div class="absolute top-0 left-0 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob"></div>  <div class="absolute top-0 right-0 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>  <div class="relative z-10 container mx-auto px-4 py-24">    <!-- Header -->    <div class="max-w-4xl mx-auto text-center mb-16">      <div class="inline-block mb-4 px-4 py-1 bg-slate-800/50 rounded-full backdrop-blur-sm border border-slate-700">        <span class="text-slate-400">🏈 Coming Soon</span>      </div>      <h1 class="text-5xl md:text-7xl font-bold bg                  bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400 mb-6">        You Don't Know Ball      </h1>      <p class="text-xl text-slate-400 mb-8 max-w-2xl mx-auto">        Think you know ball? Everyone talks, but let's see who really knows ball. Put your knowledge to the test or stay quiet in the mentions.      </p>      <!-- Signup Form -->      <div class="max-w-md mx-auto mb-16">        <form 
-          action="https://gmail.us19.list-manage.com/subscribe/post?u=da3a5b239dfaab5e264e94b03&amp;id=f7486ebbc1"
-          method="POST"
+          id="subscribe-form" 
           class="flex flex-col sm:flex-row gap-3 p-2 bg-slate-800/50 rounded-lg backdrop-blur-sm border border-slate-700"
-          target="_blank"
         >
           <input 
             type="email" 
-            name="EMAIL"
+            name="email" 
             placeholder="Enter your email" 
             class="flex-1 px-4 py-3 bg-slate-900/50 rounded-md border border-slate-700 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors" 
             required
           >
-          
-          <div style="position: absolute; left: -5000px;" aria-hidden="true">
-            <input type="text" name="b_da3a5b239dfaab5e264e94b03_f7486ebbc1" tabindex="-1" value="">
-          </div>
-          
           <button 
-            type="submit"
+            type="submit" 
             class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors whitespace-nowrap"
+            x-data="{ loading: false }"
+            x-bind:disabled="loading"
+            x-text="loading ? 'Subscribing...' : 'Get Early Access 🚀'"
           >
-            Get Early Access 🚀
           </button>
         </form>
-
-        <!-- Success/Error messages -->
         <div id="success-message" class="hidden mt-3 text-green-400 text-center">
           You're in! Get ready to prove you know ball 🏈
         </div>
@@ -69,6 +60,42 @@
           Oops! Something went wrong. Please try again.
         </div>      </div>      <!-- Feature Grid -->      <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">        <div class="p-6 bg-slate-800/50 rounded-xl backdrop-blur-sm border border-slate-700">          <div class="text-3xl mb-4">⚡️</div>          <h3 class="text-lg font-semibold text-white mb-2">Daily Challenges</h3>          <p class="text-slate-400">New players and puzzles refreshed every day</p>        </div>        <div class="p-6 bg-slate-800/50 rounded-xl backdrop-blur-sm border border-slate-700">          <div class="text-3xl mb-4">🎯</div>          <h3 class="text-lg font-semibold text-white mb-2">Multiple Modes</h3>          <p class="text-slate-400">From rookie to Hall of Fame difficulty</p>        </div>        <div class="p-6 bg-slate-800/50 rounded-xl backdrop-blur-sm border border-slate-700">          <div class="text-3xl mb-4">🏆</div>          <h3 class="text-lg font-semibold text-white mb-2">Compete &amp; Learn</h3>          <p class="text-slate-400">Challenge friends and expand your knowledge</p>        </div>      </div>    </div>    <!-- Footer -->    <div class="text-center text-slate-500 text-sm">      <p>© 2025 You Don't Know Ball • docsofdw</p>    </div>  </div>  <style>    @keyframes blob {      0% { transform: translate(0px, 0px) scale(1); }      33% { transform: translate(30px, -50px) scale(1.1); }      66% { transform: translate(-20px, 20px) scale(0.9); }      100% { transform: translate(0px, 0px) scale(1); }    }    .animate-blob {      animation: blob 7s infinite;    }    .animation-delay-2000 {      animation-delay: 2s;    }  </style></section>
     </div>
+    <script>
+      document.getElementById('subscribe-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const button = form.querySelector('button');
+        const successMessage = document.getElementById('success-message');
+        const errorMessage = document.getElementById('error-message');
+
+        try {
+          button.disabled = true;
+          button.textContent = 'Subscribing...';
+
+          const response = await fetch('/api/subscribe', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email }),
+          });
+
+          if (!response.ok) throw new Error('Subscription failed');
+
+          form.reset();
+          successMessage.classList.remove('hidden');
+          errorMessage.classList.add('hidden');
+        } catch (error) {
+          console.error('Error:', error);
+          errorMessage.classList.remove('hidden');
+          successMessage.classList.add('hidden');
+        } finally {
+          button.disabled = false;
+          button.textContent = 'Get Early Access 🚀';
+        }
+      });
+    </script>
 </body>
 </html>
 
