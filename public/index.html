@@ -28,74 +28,127 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap">
     <link rel="stylesheet" href="css/tailwind/tailwind.min.css">
     <link rel="icon" type="image/png" sizes="32x32" href="shuffle-for-tailwind.png">
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" defer></script>
 </head>
 <body class="antialiased bg-body text-body font-body">
     <div class="">
+      <section class="relative min-h-screen bg-gradient-to-b from-slate-900 via-slate-900 to-slate-800 overflow-hidden">
+        <div class="absolute top-0 left-0 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob"></div>
+        <div class="absolute top-0 right-0 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
+        <div class="relative z-10 container mx-auto px-4 py-24">
+          <div class="max-w-4xl mx-auto text-center mb-16">
+            <div class="inline-block mb-4 px-4 py-1 bg-slate-800/50 rounded-full backdrop-blur-sm border border-slate-700">
+              <span class="text-slate-400">🏈 Coming Soon</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold bg bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400 mb-6">
+              You Don't Know Ball
+            </h1>
+            <p class="text-xl text-slate-400 mb-8 max-w-2xl mx-auto">
+              Think you know ball? Everyone talks, but let's see who really knows ball. Put your knowledge to the test or stay quiet in the mentions.
+            </p>
+            
+            <!-- Signup Form -->
+            <div class="max-w-md mx-auto mb-16">
+              <form 
+                id="mc-form"
+                action="https://gmail.us19.list-manage.com/subscribe/post-json?u=da3a5b239dfaab5e264e94b03&amp;id=f7486ebbc1&amp;c=?"
+                method="POST"
+                class="flex flex-col sm:flex-row gap-3 p-2 bg-slate-800/50 rounded-lg backdrop-blur-sm border border-slate-700"
+              >
+                <input 
+                  type="email" 
+                  name="EMAIL"
+                  placeholder="Enter your email" 
+                  class="flex-1 px-4 py-3 bg-slate-900/50 rounded-md border border-slate-700 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors" 
+                  required
+                >
                 
-      <section class="relative min-h-screen bg-gradient-to-b from-slate-900 via-slate-900 to-slate-800 overflow-hidden">  <!-- Gradient orbs -->  <div class="absolute top-0 left-0 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob"></div>  <div class="absolute top-0 right-0 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>  <div class="relative z-10 container mx-auto px-4 py-24">    <!-- Header -->    <div class="max-w-4xl mx-auto text-center mb-16">      <div class="inline-block mb-4 px-4 py-1 bg-slate-800/50 rounded-full backdrop-blur-sm border border-slate-700">        <span class="text-slate-400">🏈 Coming Soon</span>      </div>      <h1 class="text-5xl md:text-7xl font-bold bg                  bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400 mb-6">        You Don't Know Ball      </h1>      <p class="text-xl text-slate-400 mb-8 max-w-2xl mx-auto">        Think you know ball? Everyone talks, but let's see who really knows ball. Put your knowledge to the test or stay quiet in the mentions.      </p>      <!-- Signup Form -->      <div class="max-w-md mx-auto mb-16">        <form 
-          id="subscribe-form" 
-          class="flex flex-col sm:flex-row gap-3 p-2 bg-slate-800/50 rounded-lg backdrop-blur-sm border border-slate-700"
-        >
-          <input 
-            type="email" 
-            name="email" 
-            placeholder="Enter your email" 
-            class="flex-1 px-4 py-3 bg-slate-900/50 rounded-md border border-slate-700 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors" 
-            required
-          >
-          <button 
-            type="submit" 
-            class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors whitespace-nowrap"
-            x-data="{ loading: false }"
-            x-bind:disabled="loading"
-            x-text="loading ? 'Subscribing...' : 'Get Early Access 🚀'"
-          >
-          </button>
-        </form>
-        <div id="success-message" class="hidden mt-3 text-green-400 text-center">
-          You're in! Get ready to prove you know ball 🏈
+                <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                  <input type="text" name="b_da3a5b239dfaab5e264e94b03_f7486ebbc1" tabindex="-1" value="">
+                </div>
+                
+                <button 
+                  type="submit"
+                  class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors whitespace-nowrap"
+                >
+                  Get Early Access 🚀
+                </button>
+              </form>
+              
+              <div id="notification" class="mt-4 py-2 px-4 text-center transition-all duration-300 transform translate-y-2 opacity-0 bg-slate-800/50 backdrop-blur-sm rounded-lg border border-slate-700">
+                <span id="notification-text" class="text-slate-200"></span>
+              </div>
+            </div>
+
+            <!-- Feature Grid -->
+            <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              <div class="p-6 bg-slate-800/50 rounded-xl backdrop-blur-sm border border-slate-700">
+                <div class="text-3xl mb-4">⚡️</div>
+                <h3 class="text-lg font-semibold text-white mb-2">Daily Challenges</h3>
+                <p class="text-slate-400">New players and puzzles refreshed every day</p>
+              </div>
+              <div class="p-6 bg-slate-800/50 rounded-xl backdrop-blur-sm border border-slate-700">
+                <div class="text-3xl mb-4">🎯</div>
+                <h3 class="text-lg font-semibold text-white mb-2">Multiple Modes</h3>
+                <p class="text-slate-400">From rookie to Hall of Fame difficulty</p>
+              </div>
+              <div class="p-6 bg-slate-800/50 rounded-xl backdrop-blur-sm border border-slate-700">
+                <div class="text-3xl mb-4">🏆</div>
+                <h3 class="text-lg font-semibold text-white mb-2">Compete & Learn</h3>
+                <p class="text-slate-400">Challenge friends and expand your knowledge</p>
+              </div>
+            </div>
+          </div>
+          <!-- Footer -->
+          <div class="text-center text-slate-500 text-sm">
+            <p>© 2025 You Don't Know Ball • docsofdw</p>
+          </div>
         </div>
-        <div id="error-message" class="hidden mt-3 text-red-400 text-center">
-          Oops! Something went wrong. Please try again.
-        </div>      </div>      <!-- Feature Grid -->      <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">        <div class="p-6 bg-slate-800/50 rounded-xl backdrop-blur-sm border border-slate-700">          <div class="text-3xl mb-4">⚡️</div>          <h3 class="text-lg font-semibold text-white mb-2">Daily Challenges</h3>          <p class="text-slate-400">New players and puzzles refreshed every day</p>        </div>        <div class="p-6 bg-slate-800/50 rounded-xl backdrop-blur-sm border border-slate-700">          <div class="text-3xl mb-4">🎯</div>          <h3 class="text-lg font-semibold text-white mb-2">Multiple Modes</h3>          <p class="text-slate-400">From rookie to Hall of Fame difficulty</p>        </div>        <div class="p-6 bg-slate-800/50 rounded-xl backdrop-blur-sm border border-slate-700">          <div class="text-3xl mb-4">🏆</div>          <h3 class="text-lg font-semibold text-white mb-2">Compete &amp; Learn</h3>          <p class="text-slate-400">Challenge friends and expand your knowledge</p>        </div>      </div>    </div>    <!-- Footer -->    <div class="text-center text-slate-500 text-sm">      <p>© 2025 You Don't Know Ball • docsofdw</p>    </div>  </div>  <style>    @keyframes blob {      0% { transform: translate(0px, 0px) scale(1); }      33% { transform: translate(30px, -50px) scale(1.1); }      66% { transform: translate(-20px, 20px) scale(0.9); }      100% { transform: translate(0px, 0px) scale(1); }    }    .animate-blob {      animation: blob 7s infinite;    }    .animation-delay-2000 {      animation-delay: 2s;    }  </style></section>
+        <style>
+          @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+          }
+          .animate-blob {
+            animation: blob 7s infinite;
+          }
+          .animation-delay-2000 {
+            animation-delay: 2s;
+          }
+        </style>
+      </section>
     </div>
     <script>
-      document.getElementById('subscribe-form').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const form = e.target;
-        const email = form.email.value;
-        const button = form.querySelector('button');
-        const successMessage = document.getElementById('success-message');
-        const errorMessage = document.getElementById('error-message');
+      window.addEventListener('DOMContentLoaded', (event) => {
+        const form = document.getElementById('mc-form');
+        const notification = document.getElementById('notification');
+        const notificationText = document.getElementById('notification-text');
 
-        try {
-          button.disabled = true;
-          button.textContent = 'Subscribing...';
-
-          const response = await fetch('/api/subscribe', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email }),
-          });
-
-          if (!response.ok) throw new Error('Subscription failed');
-
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const email = form.querySelector('input[type="email"]').value;
+          
+          // Show temporary success message
+          notification.classList.remove('opacity-0', 'translate-y-2');
+          notificationText.textContent = '✨ You\'re in! Get ready to prove you know ball 🏈';
+          
+          // Reset form
           form.reset();
-          successMessage.classList.remove('hidden');
-          errorMessage.classList.add('hidden');
-        } catch (error) {
-          console.error('Error:', error);
-          errorMessage.classList.remove('hidden');
-          successMessage.classList.add('hidden');
-        } finally {
-          button.disabled = false;
-          button.textContent = 'Get Early Access 🚀';
-        }
+          
+          // Hide notification after 3 seconds
+          setTimeout(() => {
+            notification.classList.add('opacity-0', 'translate-y-2');
+          }, 3000);
+          
+          // Submit to Mailchimp
+          const url = form.action.replace('/post?', '/post-json?') + '&EMAIL=' + encodeURIComponent(email);
+          const script = document.createElement('script');
+          script.src = url;
+          document.body.appendChild(script);
+          document.body.removeChild(script);
+        });
       });
     </script>
 </body>
 </html>
-
