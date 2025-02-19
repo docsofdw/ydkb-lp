@@ -7,16 +7,12 @@
   "description": "",
   "scripts": {
     "dev": "npm run watch",
-    "build": "npm run build:clean && npm run build:html && npm run build:assets && npm run build:css && npm run build:headers",
+    "build": "npm run build:clean && npm run build:html && npm run build:assets && npm run build:css",
     "build:clean": "rimraf public",
     "build:html": "mkdir -p public && cp src/html/*.html public/",
     "build:assets": "mkdir -p public/css/tailwind && cp -r src/assets/* public/ || true",
     "build:css": "tailwindcss build -i src/tailwind/tailwind.css -c src/tailwind/tailwind.config.js -o public/css/tailwind/tailwind.min.css --minify",
-    "build:headers": "cp _headers public/",
-    "watch": "npm-run-all build --parallel watch:html watch:css serve",
-    "watch:html": "onchange 'src/html/*.html' -- npm run build:html",
-    "watch:css": "tailwindcss build -i src/tailwind/tailwind.css -c src/tailwind/tailwind.config.js -o public/css/tailwind/tailwind.min.css --minify --watch",
-    "serve": "live-server public"
+    "watch": "npm run build && live-server public"
   },
   "dependencies": {
     "@mailchimp/mailchimp_marketing": "^3.0.80",
